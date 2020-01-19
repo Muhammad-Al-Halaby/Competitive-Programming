@@ -38,3 +38,89 @@ From case 1 and case 2, we conclude that the set is a permutation of the origina
 
 
 The product of the elements in the set `a * S` are `a * 2*a * .... * (p-1)*a ≡ 1 * 2 * .... * (p-1) mod p` which is equal to `(p-1)! * a^(p-1) ≡ (p-1)! mod p`, and `p ∤ (p-1)!` so we can cancel it from both sides to get `a^(p-1) ≡ 1 mod p` and that proves Fermat's Little Theorem.
+
+
+# Fermat's Primality Test
+
+Fermat's Little Theorem can be used in primality testing.
+
+For a number `p` to be prime, this relation must hold `a^(p - 1) ≡ 1 mod p` for every `a` that's relatively prime with `p` (`1 < a < p`).
+
+This can also be used for calculating the number of divisors in `O(n^(1/3))`.
+
+```CPP
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+ll mulmod(ll a,ll b,ll mod){
+    ll x = 0,y=a%mod;
+    while(b > 0){
+        if(b%2 == 1){
+            x = (x+y)%mod;
+        }
+        y = (y*2)%mod;
+        b /= 2;
+    }
+    return x%mod;
+}
+
+ll power(ll b, ll e, ll mod){
+    if(e == 1)  return b;
+    ll ans = power(b, e / 2, mod);
+    ans = mulmod(ans, ans, mod);
+    if(e & 1)   ans = mulmod(ans, b, mod);
+    return ans;
+}
+
+//Fermat's Primality Test in log(n)
+bool is_prime(ll n, int k){
+    if(n <= 1 || n == 4)    return false;
+    if(n <= 3)  return true;
+
+    bool x = true;
+    while(k--){
+        ll a = 2 + rand() % (n - 2);
+        x &= __gcd(a, n) == 1;
+        x &= power(a, n - 1, n) == 1;
+        if(x == 0) cout << a << endl;
+    }
+    return x;
+}
+
+//Calculate number of divisors in O(n^(1/3))
+ll number_of_divisors(ll n){
+    ll ans = 1;
+    //remove all factors less then n^(1/3)
+    for(ll i = 2;i * i * i <= n;i++){
+        if(n % i)   continue;
+        ll c = 0;
+        while(n % i == 0)
+            n /= i, c++;
+        ans *= (c + 1);
+    }
+
+    if(n == 1)  return ans;
+
+    //n can have at most 2 more factors greater than n^(1e3),
+    //n can either be prime, a square of a prime, or a product of two primes.
+    ll sq = sqrtl(n);
+    if(sq * sq == n)
+        ans *= 3;
+    else if(is_prime(n, 20))
+        ans *= 2;
+    else
+        ans *= 4;
+
+    return ans;
+}
+
+int main(){
+    ll n;   cin >> n;
+    cout << is_prime(n , 20) << '\n';
+    cout << number_of_divisors(n);
+}
+```
+* Note that: Fermat's primality test can fail with Carmichael numbers.
