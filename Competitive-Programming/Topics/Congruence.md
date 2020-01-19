@@ -36,3 +36,7 @@ Since `a-b` is divisible by `n`, the remainder when `r1 - r2` is divided by `n` 
 But `r1` and `r2` are both numbers between `0` and `n - 1`, so the only way `r1 - r2` can be an even multiple of `n` is for it to equal `0`.
 
 So `r1 = r2` and `a ≡ b mod n`.
+
+#### Resources:
+* https://www.youtube.com/watch?v=QgPfagOgOAc
+* http://mathworld.wolfram.com/Congruence.html

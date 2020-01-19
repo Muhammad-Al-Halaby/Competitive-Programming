@@ -39,8 +39,54 @@ From case 1 and case 2, we conclude that the set is a permutation of the origina
 
 The product of the elements in the set `a * S` are `a * 2*a * .... * (p-1)*a ≡ 1 * 2 * .... * (p-1) mod p` which is equal to `(p-1)! * a^(p-1) ≡ (p-1)! mod p`, and `p ∤ (p-1)!` so we can cancel it from both sides to get `a^(p-1) ≡ 1 mod p` and that proves Fermat's Little Theorem.
 
+---
 
-# Fermat's Primality Test
+## Applications
+### 1- Modular Multiplicative Inverse
+
+Fermat's Little Theorem can be used to calculate the modular multiplicative inverse.
+
+if `p` is prime, and `p ∤ a` then from Fermat's Little theorem `a^(p-1) ≡ 1 mod p`, we can factor `a` out to get `a * a^(p-2) ≡ 1 mod p`, from that we conclude that `a^(p-2)` is the modular multiplicative inverse of `a` for `mod p`.
+
+```CPP
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+ll mulmod(ll a,ll b,ll mod){
+    ll x = 0,y=a%mod;
+    while(b > 0){
+        if(b%2 == 1){
+            x = (x+y)%mod;
+        }
+        y = (y*2)%mod;
+        b /= 2;
+    }
+    return x%mod;
+}
+
+ll power(ll b, ll e, ll mod){
+    if(e == 1)  return b;
+    ll ans = power(b, e / 2, mod);
+    ans = mulmod(ans, ans, mod);
+    if(e & 1)   ans = mulmod(ans, b, mod);
+    return ans;
+}
+
+//iif p is prime, gcd(a, p) == 1;
+ll modular_mul_inv(ll a, ll p){
+    return power(a, p - 2, p);
+}
+
+int main(){
+    ll n, p;  cin >> n >> p;
+    cout << modular_mul_inv(n, p);
+}
+```
+
+### 2- Fermat's Primality Test
 
 Fermat's Little Theorem can be used in primality testing.
 
@@ -123,4 +169,14 @@ int main(){
     cout << number_of_divisors(n);
 }
 ```
-* Note that: Fermat's primality test can fail with Carmichael numbers.
+* **Note:** Fermat's primality test could fail with Carmichael numbers (such as: `561`).
+
+#### Problems
+* https://codeforces.com/gym/100753/problem/F
+* https://www.spoj.com/problems/PON/
+*  https://www.spoj.com/problems/SAS002/
+* https://www.spoj.com/problems/NUMDIV/
+
+#### Resources:
+* https://www.youtube.com/watch?v=w0ZQvZLx2KA
+* https://www.geeksforgeeks.org/primality-test-set-2-fermet-method/
