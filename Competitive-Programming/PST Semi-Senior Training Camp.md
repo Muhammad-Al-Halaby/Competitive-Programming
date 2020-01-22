@@ -1,6 +1,6 @@
 # PST Semi-Senior Training Camp
 
-## Session 1:
+## Session 1
 
 - <details>
   <summary>Graph Terminologies</summary>
@@ -47,7 +47,7 @@
 
 ---
 
-## Session 2:
+## Session 2
 
 - memset (1 byte).
 - DFS.
@@ -65,7 +65,7 @@
 
   ---
 
-## Session 3:
+## Session 3
 
 - BFS (0/1 SSSP).
 - Topological Order using In degree.
@@ -88,7 +88,7 @@
 
 ---
 
-## Session 4:
+## Session 4
 
 - Iterative Deepening Search (IDS)
 
@@ -100,7 +100,7 @@
 
 ---
 
-## Session 5:
+## Session 5
 - Dijkstra (Sparse/Dense)
 
 - Problems: https://vjudge.net/contest/308781
@@ -114,7 +114,7 @@
 
 ---
 
-## Session 6:
+## Session 6
 
 - Floyd-Warshall (all pairs shortest paths, negative cycles, positive cycles).
 
@@ -314,7 +314,7 @@ ax + by = mg : g = gcd (a , b)
 
 ## Session 15
 
-- Problems
+- Problems:
   1. Fun With Strings: https://ideone.com/6yp87r
   1. [Pair of Lines](https://codeforces.com/problemset/problem/961/D): https://ideone.com/svAGP3
   1. [Zen and his Crush](https://www.spoj.com/problems/ZCR/): https://ideone.com/gfRgPx
