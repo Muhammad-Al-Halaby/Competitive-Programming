@@ -61,7 +61,7 @@ https://stackoverflow.com/questions/3002764/is-a-linked-list-implementation-with
 
   ---
 
-  ## Session 3:
+## Session 3:
 
 - BFS (0/1 SSSP).
 - Topological Order using In degree.
