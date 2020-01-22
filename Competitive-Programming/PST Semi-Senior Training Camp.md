@@ -2,27 +2,32 @@
 
 ## Session 1:
 
-- Graph Terminologies <details>
-  - nodes
-  - edges
-  - directed/undirected
-  - weighted/unweighted
-  - connected/disconnected
-  - cyclic/acyclic, adjacency
-  - multigraph
-  - self-loop
-  - simple graph
-  - implicit/explicit graph
-  - regular/complete graph
-  - sparse/dense graph (i.e. Dijkstra)
-  - bipartite(even and odd cycles)
-  - Tree
-  - DAG
+- <details>
+  <summary>Graph Terminologies</summary>
+
+  - nodes.
+  - edges.
+  - directed/undirected.
+  - weighted/unweighted.
+  - connected/disconnected.
+  - cyclic/acyclic.
+  - adjacency.
+  - multigraph.
+  - self-loop.
+  - simple graph.
+  - implicit/explicit.
+  - regular/complete.
+  - sparse/dense (i.e. Dijkstra).
+  - bipartite (even and odd cycles).
+  - Tree.
+  - DAG.
   - In/Out Degree.
 </details>
 
 
-- Graph Representation <details>
+- <details>
+  <summary>Graph Representation</summary>
+
   1. Edge List.
   1. Adjacency Matrix.
   1. Adjacency List.
@@ -36,10 +41,9 @@
 - 12 O'clock buttons Problem.
 
 
-- Slides: https://docs.google.com/presentation/d/1XDN3L7tl5ecfoTs9L6H2hYwOrIpe9HjZ4O1vDVaZA2Q/edit#slide=id.p4
+- [Slides](https://docs.google.com/presentation/d/1XDN3L7tl5ecfoTs9L6H2hYwOrIpe9HjZ4O1vDVaZA2Q/edit#slide=id.p4).
 
-- Adjacency List (Linked-List-like implementation):
-https://stackoverflow.com/questions/3002764/is-a-linked-list-implementation-without-using-pointers-possible-or-not
+- [Adjacency List (Linked-List-like implementation)](https://stackoverflow.com/questions/3002764/is-a-linked-list-implementation-without-using-pointers-possible-or-not)
 
 ---
 
