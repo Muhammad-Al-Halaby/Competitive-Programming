@@ -29,11 +29,11 @@ The Euclidean Algorithm states that `gcd(a, b) = gcd(b, a % b)`, where `a` and `
   ⇒ `gcd(b, r) | gcd(a, b)` **→ (2)**.
 
 
-**from (1) and (2)** ⇒ `gcd(a, b) = gcd(b, r)`.
+#### **From (1) and (2)** ⇒ `gcd(a, b) = gcd(b, r)`.
 
 ---
 
-## GCD (recurive)
+## GCD (recursive)
 ```CPP
 int gcd (int a, int b) {
     return b ? gcd (b, a % b) : a;
