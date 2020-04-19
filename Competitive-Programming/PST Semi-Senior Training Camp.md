@@ -243,7 +243,7 @@
 - Congruence Relation.
 - Euclidean Algorithm.
 - Extended Euclidean Algorithm.
-- Solving Linear Diophantine. Equations.
+- Solving Linear Diophantine Equations.
 - Bezout's Identity.
 
 - Codes: https://ideone.com/fL3OPS

@@ -2,6 +2,7 @@
 
 The Euclidean Algorithm states that `gcd(a, b) = gcd(b, a % b)`, where `a` and `b` are two integers and `gcd(a, b)` is the greatest common divisor of `a` and `b`.
 
+#### Another form is `gcd(a, b) = gcd(a, a - b)`
 ---
 
 ## Proof
