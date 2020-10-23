@@ -36,3 +36,6 @@
 - Mo's algorithm on arrays.
 - Mo's algorithm on trees.
 - Mo's algorithm with updates.
+
+1. D-query
+1. GOT
