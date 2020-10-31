@@ -47,8 +47,9 @@ stack<int> stk;
 vector<vector<int>> comps;
 vector<pair<int, int>> bridges;
 
-void dfs(int u, int p, Adj &adj){
+void dfsSCCs(int u, int p, Adj &adj){
     inTime[u] = lowTime[u] = ++dfsTime;
+    art[u] = 0;
     inStack[u] = 1;
     stk.push(u);
     vis[u] = vid;
@@ -56,7 +57,7 @@ void dfs(int u, int p, Adj &adj){
         if(v == p)  continue;
 
         if (vis[v] != vid)
-            dfs(v, u, adj);
+            dfsSCCs(v, u, adj);
         else {
             lowTime[u] = min(lowTime[u], inTime[v]);
             continue;
@@ -115,6 +116,6 @@ int main() {
 
     for (int u = 0, t; u < n; ++u)
         if (vis[u] != vid)
-            dfs(u, -1, graph);
+            dfsSCCs(u, -1, graph);
 }
 ```
