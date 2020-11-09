@@ -1,7 +1,14 @@
 # Strongly Connected Components, Bridges, Articulation Points (Tarjan's algorithm)
 
 
-## Code
+## Important notes:
+
+1. Tarjan's algorithm only can't find bridges and articulation points in directed graphs.
+1. In undirected graphs: if we connect all SCCs together, we get a tree.
+1. In directed graphs: if we connect all SCCs together, we get a DAG.
+
+
+### Code
 ```cpp
 #include <bits/stdc++.h>
 
@@ -56,20 +63,21 @@ void dfsSCCs(int u, int p, Adj &adj){
     neig(adj, u, e, v){
         if(v == p)  continue;
 
-        if (vis[v] != vid)
-            dfsSCCs(v, u, adj);
-        else {
-            lowTime[u] = min(lowTime[u], inTime[v]);
+        if (vis[v] == vid) {
+            if (inStack[v]) //back-edge
+                lowTime[u] = min(lowTime[u], inTime[v]);
             continue;
         }
+
+        dfsSCCs(v, u, adj);
+
+        lowTime[u] = min(lowTime[u], lowTime[v]);
 
         if(inTime[u] < lowTime[v])
             bridges.push_back({u, e});
 
         if(inTime[u] <= lowTime[v])
             art[u] = (inTime[u] > 1 || inTime[v] > 2);
-
-        lowTime[u] = min(lowTime[u], lowTime[v]);
     }
 
     if(inTime[u] == lowTime[u]){
