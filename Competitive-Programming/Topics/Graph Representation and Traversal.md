@@ -22,7 +22,7 @@ struct Adj {
     int n, ne, head[N], nxt[M], to[M], cost[M];
 
     void initGraph(int n) {
-        memset(head, -1, n * sizeof head[0]);
+        memset(head, -1, (n + 1) * sizeof head[0]);
         ne = 0;
         this->n = n;
     }
