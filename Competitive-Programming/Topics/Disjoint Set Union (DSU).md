@@ -1,3 +1,5 @@
+# Disjoint Set Union (DSU)
+
 # Code
 ```cpp
 struct DSU{

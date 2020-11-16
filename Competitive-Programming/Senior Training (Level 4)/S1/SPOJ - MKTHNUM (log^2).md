@@ -1,6 +1,9 @@
+# SPOJ - MKTHNUM
 
+Print k-th number in a[i ... j] segment, if this segment was sorted
+
+```cpp
 #include <bits/stdc++.h>
-
 
 using namespace std;
 
@@ -28,12 +31,12 @@ void build(int ind = 0 , int nst = 0 , int nen = n - 1) {
 
 int query(int qst , int qen , int qval , int ind = 0 , int nst = 0 , int nen = n - 1) {
 
-    if(nst > qen || nen < qst) 
+    if(nst > qen || nen < qst)
             return 0;
 
     if(nst >= qst && nen <= qen)
     	return lower_bound(seg[ind].begin(),seg[ind].end(),qval)-seg[ind].begin();
-    
+
     int l = 2 * ind + 1;
     int r = l + 1;
 
@@ -41,11 +44,9 @@ int query(int qst , int qen , int qval , int ind = 0 , int nst = 0 , int nen = n
     return query(qst,qen,qval,l,nst,md) + query(qst,qen,qval,r,md+1,nen);
 }
 
-int solve(int x,int y,int k)
-{
+int solve(int x,int y,int k){
 	int st=-1e9, en=1e9,md;
-	while(st<en)
-	{
+	while(st<en){
 		md=st+(en-st)/2;
 		int rs=query(x,y,md);
 		if(rs>=k)
@@ -59,17 +60,16 @@ main() {
 
     scanf("%d %d" , &n , &m);
 
-    for(int i = 0 ; i < n ; i ++) 
-    {
+    for(int i = 0 ; i < n ; i ++){
             scanf("%d" , &a[i]);
     }
 
     build();
-    while(m--)
-    {
+    while(m--){
     	scanf("%d %d %d",&x,&y,&k);
     	printf("%d\n",solve(x-1,y-1,k)-1);
     }
 
     return 0;
 }
+```

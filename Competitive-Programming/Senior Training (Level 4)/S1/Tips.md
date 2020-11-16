@@ -4,6 +4,6 @@
 1. Struct constructors suitable for all cases (Undefined behavior / TLE).
 1. Segment Tree insert and query base cases (Segmentation fault / TLE).
 1. Overflow in calculating the mid value (WA)
+1. Overflow everywhere.
 1. Are you calling the right function???? Check the name.
-
-1. Lazy crap :)
+1. Lazy crap :) [trace different cases for lazy]

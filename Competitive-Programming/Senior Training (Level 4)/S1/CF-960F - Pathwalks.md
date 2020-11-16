@@ -1,3 +1,4 @@
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
@@ -133,3 +134,4 @@ int main(){
     while(t--)
         go(tc++);
 }
+```

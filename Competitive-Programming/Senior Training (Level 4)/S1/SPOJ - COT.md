@@ -1,3 +1,12 @@
+# SPOJ - COT
+
+You are given a tree with N nodes. The tree nodes are numbered from 1 to N. Each node has an integer weight.
+
+We will ask you to perform the following operation:
+
+u v k : ask for the kth minimum weight on the path from node u to node v
+
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
@@ -192,3 +201,4 @@ int main(){
     while(t--)
         go(tc++);
 }
+```

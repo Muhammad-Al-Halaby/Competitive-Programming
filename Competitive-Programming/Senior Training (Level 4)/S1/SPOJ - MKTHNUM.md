@@ -1,3 +1,8 @@
+# SPOJ - MKTHNUM
+
+Print k-th number in a[i ... j] segment, if this segment was sorted
+
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
@@ -98,3 +103,4 @@ int main(){
     while(t--)
         go(tc++);
 }
+```

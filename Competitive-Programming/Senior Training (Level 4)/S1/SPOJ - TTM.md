@@ -1,3 +1,16 @@
+# SPOJ - TTM
+
+You've been given N integers A[1], A[2],..., A[N]. On these integers, you need to implement the following operations:
+
+C l r d: Adding a constant d for every {Ai | l <= i <= r}, and increase the timestamp by 1, this is the only operation that will cause the timestamp increase.
+
+Q l r: Querying the current sum of {Ai | l <= i <= r}.
+
+H l r t: Querying a history sum of {Ai | l <= i <= r} in time t.
+
+B t: Back to time t. And once you decide return to a past, you can never be access to a forward edition anymore.
+
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
@@ -8,12 +21,6 @@ using namespace std;
 #define EPS 1e-9
 
 typedef long long ll;
-typedef pair<int,int> pii;
-
-void init(){
-    cin.tie(0);
-    cin.sync_with_stdio(0);
-}
 
 const int N = 1e5 + 9, M = 1e6 + 9, OO = 0x3f3f3f3f;
 const ll llOO = 0x3f3f3f3f3f3f3f3f;
@@ -107,7 +114,9 @@ ll query(node *root, int &start, int &end, int l = 1, int r = n){
 node *roots[N];
 int timestamp;
 
-void go(int tc = 0){
+int main(){
+    cin.tie(0);
+    cin.sync_with_stdio(0);
 
     cin >> n >> m;
 
@@ -139,17 +148,4 @@ void go(int tc = 0){
             timestamp = t;
         }
     }
-}
-
-
-int main(){
-    init();
-
-//    freopen("in.in", "r", stdin);
-//    freopen("out.out", "w", stdout);
-
-    int t = 1, tc = 1;
-//    cin >> t;
-    while(t--)
-        go(tc++);
 }

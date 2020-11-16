@@ -1,6 +1,5 @@
 # Stress Test
 
-
 ## Code (for Windows)
 
 ```cpp
@@ -21,6 +20,7 @@ void gen(){
         cout << a << " " << b << " " << c << endl;
     }
 }
+
 int main() {
     int tc = 0;
     system("g++  ac.cpp -o ac");
@@ -32,7 +32,9 @@ int main() {
         system("ac.exe < in.in > ac.out");
         system("wa.exe < in.in > wa.out");
 
-        ifstream acs("ac.out"), was("wa.out");
+        ifstream acs("ac.out");
+        ifstream was("wa.out");
+
         string ac, wa;
         getline(acs, ac, (char) EOF);
         getline(was, wa, (char) EOF);
@@ -40,7 +42,6 @@ int main() {
     }
 }
 ```
-
 
 ## Code (for Linux)
 
@@ -65,16 +66,18 @@ void gen(){
 
 int main(){
     int tc = 0;
-    system("g++ -O2 -std=c++14 c.cpp -o wa");
     system("g++ -O2 -std=c++14 ac.cpp -o ac");
+    system("g++ -O2 -std=c++14 wa.cpp -o wa");
     while(++tc){
         gen();
         cerr << tc << endl;
 
-        system("./wa < i.in > wa.out");
-        system("./ac < i.in > ac.out");
+        system("./ac < in.in > ac.out");
+        system("./wa < in.in > wa.out");
 
-        ifstream acs("ac.out"), was("wa.out");
+        ifstream acs("ac.out");
+        ifstream was("wa.out");
+
         string ac, wa;
         getline(acs, ac, (char)EOF);
         getline(was, wa, (char)EOF);

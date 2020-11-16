@@ -1,11 +1,77 @@
-  # SQRT Decomposition
+# SQRT Decomposition
 
-- split updates into buckets
+- split updates into buckets (apply permanent updates at the start of each bucket, otherwise use a slow query)
 - split input numbers into buckets (on certain property like min, mx, sum, freq, etc).
 
-
-
 - Note: sqrt(1e5) = 316, sqrt(1e6) = 1e3
+
+Problem: Given two types of queries on an array:
+1. update element at index i to val
+1. count the numbers less than x in range [l, r]
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void init(){
+    cin.tie(0);
+    cin.sync_with_stdio(0);
+}
+
+const int N = 1e6 + 9, M = 4e5 + 9, OO = 0x3f3f3f3f;
+
+
+int n, q, a[N], sorted[N], root;
+
+int main(){
+    init();
+
+    cin >> n >> q;
+
+    root = sqrt(n);
+
+    for(int i = 0;i < n;i++)    cin >> a[i], sorted[i] = a[i];
+    for(int i = 0;i < n;i += root){
+        sort(sorted + i, sorted + min(n, i + root));
+    }
+
+    for(int i = 0;i < q;i++){
+        char t; cin >> t;
+        if(t == 'M'){
+            int idx, val;   cin >> idx >> val;  idx--;
+
+            a[idx] = val;
+
+            int bucketNum = idx / root;
+            int f = bucketNum * root;
+            for(int j = f;j < n && j < f + root;j++){
+                sorted[j] = a[j];
+            }
+
+            sort(sorted + f, sorted + f + root);
+
+            continue;
+        }
+
+        int l, r, k;    cin >> l >> r >> k; l--, r--;
+
+        int ans = 0;
+        for(int j = l;j <= r;j++){
+            if(j % root == 0 && j + root - 1 <= r){
+                int idx = upper_bound(sorted + j, sorted + j + root, k) - sorted;
+                ans += idx - j;
+                j += root - 1;
+            }
+            else ans += (a[j] <= k);
+        }
+
+        cout << ans << '\n';
+    }
+
+}
+```
+
+
 ## Problems
 1. [RMQSQ - Range Minimum Query (SPOJ)](https://www.spoj.com/problems/RMQSQ/)
 1. [KQUERY - K-query (SPOJ)](https://www.spoj.com/problems/KQUERY/)

@@ -52,4 +52,9 @@ int gcd (int a, int b) {
 }
 ```
 
+## Builtin GCD
+```cpp
+  __gcd(a, b);
+```
+
 ### Time complexity `O(log(min(a, b)))`

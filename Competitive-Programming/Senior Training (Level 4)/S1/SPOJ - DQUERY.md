@@ -1,3 +1,8 @@
+# SPOJ - DQUERY
+
+Print the number of distinct elements in the range [l, r]
+
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
@@ -102,3 +107,4 @@ int main(){
     while(t--)
         go(tc++);
 }
+```

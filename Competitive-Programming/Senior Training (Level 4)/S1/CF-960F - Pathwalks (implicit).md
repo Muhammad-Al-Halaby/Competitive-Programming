@@ -1,3 +1,14 @@
+# CodeForces - 960F
+
+You are given a directed graph with n nodes and m edges, with all edges having a certain weight.
+
+There might be multiple edges and self loops, and the graph can also be disconnected.
+
+You need to choose a path (possibly passing through same vertices multiple times) in the graph such that the weights of the edges are in strictly increasing order, and these edges come in the order of input. Among all such paths, you need to find the the path that has the maximum possible number of edges, and report this value.
+
+Please note that the edges picked don't have to be consecutive in the input.
+
+```cpp
 #include "bits/stdc++.h"
 
 using namespace std;
@@ -112,7 +123,8 @@ int queryNode(node *root, int &u, int &start, int &end, int l = 1, int r = n){
 
 node *roots[N];
 
-void go(int tc = 0){
+int main(){
+    init();
     cin >> n >> m;
 
     node *root = new node();
@@ -125,17 +137,4 @@ void go(int tc = 0){
     }
 
     cout << root->value << '\n';
-}
-
-
-int main(){
-    init();
-
-//    freopen("in.in", "r", stdin);
-//    freopen("out.out", "w", stdout);
-
-    int t = 1, tc = 1;
-//    cin >> t;
-    while(t--)
-        go(tc++);
 }
