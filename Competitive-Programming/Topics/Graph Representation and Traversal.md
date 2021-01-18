@@ -27,14 +27,14 @@ struct Adj {
         this->n = n;
     }
 
-    void addEdge(int f, int t, int c) {
+    void addEdge(int f, int t, int c = 0) {
         to[ne] = t;
         cost[ne] = c;
         nxt[ne] = head[f];
         head[f] = ne++;
     }
 
-    void addBiEdge(int u, int v, int c) {
+    void addBiEdge(int u, int v, int c = 0) {
         addEdge(u, v, c);
         addEdge(v, u, c);
     }

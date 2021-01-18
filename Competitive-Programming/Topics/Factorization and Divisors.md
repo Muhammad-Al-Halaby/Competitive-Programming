@@ -6,6 +6,7 @@ const int N = 1e6 + 9;
 
 vector<bool> isPrime(N, true);
 vector<int> smallestPrimeFactor(N, 1);
+vector<int> largestPrimeFactor(N, 1);
 vector<int> primes;
 vector<vector<pair<int, int>>> primeFactorization(N);
 vector<int> numDivisors(N, 1);
@@ -25,7 +26,9 @@ void sieve(){
                     isPrime[j] = false;
 
                 /* Keep it only if you need it */
-                smallestPrimeFactor[i] = i;
+                largestPrimeFactor[j] = i;
+                if(smallestPrimeFactor[j] == 1)
+                  smallestPrimeFactor[j] = i;
 
                 /* Keep it only if you need it */
                 int cpy = j, cnt = 0;
@@ -36,6 +39,17 @@ void sieve(){
             }
         }
     }
+}
+```
+
+# Check if a single integer is prime
+```cpp
+bool isPrime(ll n){
+    for(ll i = 2;i * i <= n;i++){
+        if(n % i == 0)
+          return 0;
+    }
+    return 1;
 }
 ```
 
