@@ -13,8 +13,8 @@ long long get_inv(long long x)
 
 ```cpp
 inv[1] = 1;
-for(int i = 2; i < m; ++i)
-    inv[i] = m - (m/i) * inv[m%i] % m;
+for (int i = 2;i < m;i++)
+	inv[i] = (m - (m/i) * inv[m%i] % m) % m;
 ```
 # Finding the Modular Inverse using Extended Euclidean algorithm
 
@@ -31,5 +31,13 @@ else {
 ```
 # Finding the Modular Inverse using Binary Exponentiation
 ```cpp
-  power(a, p - 2) % p;
+power(a, p - 2) % p;
+```
+
+
+# Finding the Modular Inverse using Smallest Prime Factor
+```cpp
+inv[1] = 1;
+for (int i = 2;i < m;i++)
+	inv[x]=(inv[x/smallestPrimeFactor[x]]*inv[smallestPrimeFactor[x]])%m;
 ```

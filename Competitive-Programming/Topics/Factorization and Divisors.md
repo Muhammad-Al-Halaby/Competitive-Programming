@@ -120,3 +120,19 @@ void getDivisors(ll n){
     }
 }
 ```
+
+# Prime factorization of n!
+Given all primes less than n, we need to calculate the power of each prime factor in `n!`
+
+For each prime factor `p^x` -> `x = n/p^1 + n/p^2 + n/p^3 + ...`
+
+```cpp
+for(auto p : primes){
+    ll px = p;
+    int exponent = 0;
+    while(px <= n) {
+        exponent += n / px;
+        px *= p;
+    }
+}
+```
