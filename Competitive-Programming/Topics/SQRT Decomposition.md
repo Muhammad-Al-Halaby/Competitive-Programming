@@ -8,6 +8,7 @@
 Problem: Given two types of queries on an array:
 1. update element at index i to val
 1. count the numbers less than x in range [l, r]
+
 ```cpp
 #include <bits/stdc++.h>
 
