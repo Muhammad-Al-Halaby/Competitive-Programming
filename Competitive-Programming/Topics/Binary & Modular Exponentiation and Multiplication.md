@@ -22,7 +22,9 @@ ll mulmod(ll a,ll b,ll mod){
 }
 ```
 
-## Modular Exponentiation (Recursive & Iterative)
+## Modular Exponentiation
+
+## Recursive
 ```cpp
 #include <bits/stdc++.h>
 
@@ -38,7 +40,10 @@ ll power(ll b, ll p, ll mod){
    if(p & 1)res *= b;
    return res;// % mod;
 }
+```
 
+## Iterative
+```cpp
 ll power(ll base, ll exponent, ll mod){
   ll res = 1;
 	while(exponent){
@@ -53,4 +58,4 @@ ll power(ll base, ll exponent, ll mod){
 ## Modular Exponentatioan using Euler's theorem:
 This allows computing x<sup>n</sup> mod m for very big n, especially if n is the result of another computation, as it allows to compute n under a modulo.
 
-# x<sup>n</sup> ≡ x<sup>ϕ(m) + [n mod ϕ(m)]</sup> mod m
+## x<sup>n</sup> ≡ x<sup>ϕ(m) + [n mod ϕ(m)]</sup> mod m
