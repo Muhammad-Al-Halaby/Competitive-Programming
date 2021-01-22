@@ -1,6 +1,6 @@
 # Binomial Coefficients
 
-# Iterative nCk (n choose k)
+# Iterative nCk (n choose k or Pascal's Triangle)
 ```cpp
 ll iterative_nCk(ll n, ll k){
     ll ret = 1;
@@ -25,7 +25,7 @@ ll iterative_nPr(int n, int r){
 }
 ```
 
-# nCK and nPr with preprocessing
+# nCk and nPr with preprocessing
 ```cpp
 #define modulo ll (1e9 + 7)
 
@@ -68,6 +68,42 @@ void init(){
 int main() {
 	init();
 
+}
+```
+
+# nCk preprocessing for smaller values (also useful when modulo is not a prime number)
+
+## Recursive
+```cpp
+ll dp[N][N];
+ll nCk(int n, int k){
+    if(k == 0 || n == k)    return 1;
+    ll &ret = dp[n][k];
+    if(~ret)  return ret;
+    return ret = nCk(n - 1, k - 1) + nCk(n - 1, k);
+}
+```
+
+## Iterative
+```cpp
+ll dp[N][N];
+
+ll nCk(int n, int k){
+    if(n < k) return 0;
+
+    ll &ret = dp[n][k];
+    if(ret != 0) return ret;
+
+    for(int i = 0;i < N;i++){
+        for(int j = 0;j <= i;j++){
+            if(j == 0 || j == i)
+                dp[i][j] = 1;
+            else
+                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1];
+        }
+    }
+
+    return ret;
 }
 ```
 
