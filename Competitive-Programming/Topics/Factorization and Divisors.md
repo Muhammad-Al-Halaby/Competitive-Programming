@@ -127,12 +127,11 @@ Given all primes less than n, we need to calculate the power of each prime facto
 For each prime factor `p^x` -> `x = n/p^1 + n/p^2 + n/p^3 + ...`
 
 ```cpp
-for(auto p : primes){
-    ll px = p;
+for(auto p : primes) {
     int exponent = 0;
-    while(px <= n) {
-        exponent += n / px;
-        px *= p;
+    while (n) {
+        n /= p;
+        exponent += n;
     }
 }
 ```
