@@ -42,6 +42,16 @@ void sieve(){
 }
 ```
 
+# Count the number of prime factors after sieve in O(n)
+```cpp
+void countPrimeFactors() {
+    sieve(); // includes calculating smallest prime factor of each number
+    vector<ll> factorsCount(N, 0);
+    for (int i = 2; i < N; i++)
+        factorsCount[i] += factorsCount[i / smallestPrimeFactor[i]] + 1;
+}
+```
+
 # Check if a single integer is prime
 ```cpp
 bool isPrime(ll n){
@@ -50,6 +60,25 @@ bool isPrime(ll n){
           return 0;
     }
     return 1;
+}
+```
+
+# Factorize a a single or all integers from 1 to N (sorted)
+```cpp
+vector<pair<ll, int>> factors[N];
+
+void factorize(ll n){
+    if(factors[n].size())   return;
+
+    for(ll i = 2;i * i <= n;i++){
+        if(n % i == 0){
+            int cnt = 0;
+            while(n % i == 0)   n /= i, cnt++;
+            factors[n].push_back({i, cnt});
+        }
+    }
+    if(n > 1)
+        factors[n].push_back({n, 1});
 }
 ```
 
@@ -86,7 +115,31 @@ void factorize(ll n){
 }
 ```
 
-# Divisors of all integers from 1 to N
+# Divisors of a single or all integers from 1 to N (sorted)
+```cpp
+vector<vector<int>> divisors(N);
+
+void getDivisors(ll n) {
+    if (divisors[n].size()) return;
+
+    vector<int> smallDivs;
+    vector<int> largeDivs;
+
+    for (ll i = 1; i * i <= n; i++) {
+        if (n % i == 0) {
+            smallDivs.push_back(i);
+            if (n / i != i)
+                largeDivs.push_back(n / i);
+        }
+    }
+
+    reverse(largeDivs.begin(), largeDivs.end());
+    divisors[n].resize(smallDivs.size() + largeDivs.size());
+    merge(smallDivs.begin(), smallDivs.end(), largeDivs.begin(), largeDivs.end(), divisors[n].begin());
+}
+```
+
+# Divisors of all integers from 1 to N (Preprocessing)
 ```cpp
 const int N = 1e5 + 9;
 
