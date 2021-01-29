@@ -35,9 +35,14 @@ power(a, p - 2) % p;
 ```
 
 
-# Finding the Modular Inverse using Smallest Prime Factor
+# Finding the Modular Inverse using Smallest Prime Factor (needs to be checked)
 ```cpp
 inv[1] = 1;
 for (int i = 2;i < m;i++)
 	inv[x]=(inv[x/smallestPrimeFactor[x]]*inv[smallestPrimeFactor[x]])%m;
+
+	inv[1] = 1;
+	for (int i=2; i < N; ++i) {
+			inv[i] = (modulo - (modulo / i) * inv[modulo % i] % modulo) % modulo;
+	}
 ```

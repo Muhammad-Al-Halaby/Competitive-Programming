@@ -9,16 +9,16 @@ using namespace std;
 
 typedef long long ll;
 
-ll mulmod(ll a,ll b,ll mod){
-    ll x = 0,y=a%mod;
-    while(b > 0){
-        if(b%2 == 1){
-            x = (x+y)%mod;
+ll mulmod(ll a,ll b,ll mod) {
+    ll x = 0, y = a % mod;
+    while (b > 0) {
+        if (b % 2 == 1) {
+            x = (x + y) % mod;
         }
-        y = (y*2)%mod;
+        y = (y * 2) % mod;
         b /= 2;
     }
-    return x%mod;
+    return x % mod;
 }
 ```
 
@@ -44,13 +44,14 @@ ll power(ll b, ll p, ll mod){
 
 ## Iterative
 ```cpp
-ll power(ll base, ll exponent, ll mod){
-  ll res = 1;
-	while(exponent){
-		if(exponent&1) res=(res*base)%mod;
-        exponent>>=1;
-        base=(base*base)%mod;
-	}
+ll power(ll base, ll exponent, ll mod) {
+    base %= mod;
+    ll res = 1;
+    while (exponent) {
+        if (exponent & 1) res = (res * base) % mod;
+        exponent >>= 1;
+        base = (base * base) % mod;
+    }
     return res;
 }
 ```
