@@ -60,3 +60,9 @@ ll power(ll base, ll exponent, ll mod) {
 This allows computing x<sup>n</sup> mod m for very big n, especially if n is the result of another computation, as it allows to compute n under a modulo.
 
 ## x<sup>n</sup> ≡ x<sup>ϕ(m) + [n mod ϕ(m)]</sup> mod m
+
+# Problems
+
+- https://csacademy.com/ieeextreme-practice/task/googolplex/
+
+- https://codeforces.com/problemset/problem/906/D

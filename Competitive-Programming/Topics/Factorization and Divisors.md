@@ -68,17 +68,19 @@ bool isPrime(ll n){
 vector<pair<ll, int>> factors[N];
 
 void factorize(ll n){
-    if(factors[n].size())   return;
+    auto &factors = ::factors[n];
+
+    if(factors.size())   return;
 
     for(ll i = 2;i * i <= n;i++){
         if(n % i == 0){
             int cnt = 0;
             while(n % i == 0)   n /= i, cnt++;
-            factors[n].push_back({i, cnt});
+            factors.push_back({i, cnt});
         }
     }
     if(n > 1)
-        factors[n].push_back({n, 1});
+        factors.push_back({n, 1});
 }
 ```
 
