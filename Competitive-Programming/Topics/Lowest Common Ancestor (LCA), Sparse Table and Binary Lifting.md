@@ -1,4 +1,4 @@
-# Lowest Common Ancestor
+# Lowest Common Ancestor (LCA), Sparse Table and Binary Lifting
 
 
 ## LCA using Sparse Table in O(1):

@@ -107,4 +107,4 @@ int main() {
 
 # Problems
 
-- https://acm.timus.ru/problem.aspx?space=1&num=1042 [[My solution](https://www.ideone.com/iUQ4k3)]
+- https://acm.timus.ru/problem.aspx?space=1&num=1042 [[My solution](https://ideone.com/dKnUEp)]
