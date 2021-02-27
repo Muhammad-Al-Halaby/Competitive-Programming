@@ -424,3 +424,5 @@ int main(){
 1. [LCA - Lowest Common Ancestor (SPOJ)](https://www.spoj.com/problems/LCA)
 1. [Xenia and Tree CF-Div2-E](https://codeforces.com/contest/342/problem/E)
 1. [QTREE2 - Query on a tree II (SPOJ)](https://www.spoj.com/problems/QTREE2/)
+1. [Greedy Pirate](https://codeforces.com/gym/101810/problem/M)
+1. [Gangsters in Central City](https://codeforces.com/gym/101142)

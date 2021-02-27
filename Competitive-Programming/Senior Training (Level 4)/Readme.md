@@ -13,10 +13,10 @@
 - Problems: https://vjudge.net/contest/394343
 1. D-query
 1. K-th Number
-1. 	Count on a tree
+1. Count on a tree
 1. To the moon
-1. 	Persistent Bookcase
-1. 	Pathwalks
+1. Persistent Bookcase
+1. Pathwalks
 1. Army Creation
 1. Till I Collapse
 1. Functions On The Segments

@@ -28,9 +28,11 @@ long long inverse(ll n, ll modulo){
 
 # Finding the Modular Inverse for every number modulo m (m is prime)
 ```cpp
-inv[1] = 1;
-for (int i = 2;i < m;i++)
-	inv[i] = (m - (m/i) * inv[m%i] % m) % m;
+vector<ll>  modInv(N, 0);
+modInv[1] = 1;
+for(int i = 2;i < N;i++) {  // modulo is prime
+    modInv[i] = (modulo - (modulo / i) * modInv[modulo % i] % modulo) % modulo;
+}
 ```
 
 # Finding the Modular Inverse using Extended Euclidean algorithm (m could be composite and it's faster)

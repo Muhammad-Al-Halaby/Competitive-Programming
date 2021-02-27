@@ -1,3 +1,5 @@
+# Mo's algorithm
+
 # Problems
 1. https://www.spoj.com/problems/DQUERY/
 1. https://codeforces.com/problemset/problem/86/D
