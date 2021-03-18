@@ -117,6 +117,21 @@ void factorize(ll n){
 }
 ```
 
+# Divisors of all integers from 1 to N (Preprocessing)
+```cpp
+const int N = 1e5 + 9;
+
+vector<vector<int>> divisors(N); // Divisors will always be sorted
+
+void getDivisors(){
+    for(int i = 1;i < N;i++){
+        for(int j = i;j < N;j += i){
+            divisors[j].push_back(i);
+        }
+    }
+}
+```
+
 # Divisors of a single or all integers from 1 to N (sorted)
 ```cpp
 vector<vector<int>> divisors(N);

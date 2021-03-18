@@ -42,7 +42,7 @@ int gaussian_elimination() {    // returns the number of solutions
                 matrix[j][k] += matrix[i][k] * -matrix[j][i];
     }
 
-    // fine the solution by back substitution
+    // find the solution by back substitution
     for (int i = n - 1; i >= 0; i--) {
         solution[i] = matrix[i][n];
         for (int j = n - 1; j > i; j--) {
@@ -108,3 +108,5 @@ int main() {
 # Problems
 
 - https://acm.timus.ru/problem.aspx?space=1&num=1042 [[My solution](https://ideone.com/dKnUEp)]
+
+- https://codeforces.com/problemset/problem/193/C [[My solution](https://www.ideone.com/mRBKIB)]
