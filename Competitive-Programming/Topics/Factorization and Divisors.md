@@ -63,7 +63,7 @@ bool isPrime(ll n){
 }
 ```
 
-# Factorize a a single or all integers from 1 to N (sorted)
+# Factorize a single or all integers from 1 to N (sorted)
 ```cpp
 vector<pair<ll, int>> factors[N];
 

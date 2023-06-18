@@ -60,7 +60,7 @@ void insert(char* str){
         int& nxt = child[cur][*str];
         if(nxt == -1){
             nxt = addNode();
-            childChars[cur][childNum[cur]++] = *str;
+            childChars[cur][childNum[cur]++] =  *str;
         }
         cur = nxt;
     }
@@ -78,6 +78,59 @@ int main(){
         insert(s);
     }
 }
+```
+
+
+
+## Different Implementation
+
+```cpp
+class TrieNode{
+    public:
+        TrieNode* children[26];
+        bool isWord;
+        TrieNode(){
+            isWord = false;
+            for(auto & c : children)
+                c = nullptr;
+        }
+};
+
+class Trie {
+public:
+    TrieNode* root;
+
+    Trie() {
+        root = new TrieNode();
+    }
+
+    void insert(string word) {
+        TrieNode* current = root;
+        for(auto &character : word){
+            int c = character - 'a';
+            if(current->children[c] == nullptr){
+                current->children[c] = new TrieNode();
+            }
+            current = current->children[c];
+        }
+        current->isWord = true;
+    }
+
+    bool search(string word, bool prefix = false) {
+        TrieNode *current = root;
+        for(auto &character : word){
+            int c = character - 'a';
+            if(current->children[c] == nullptr)
+                return false;
+            current = current->children[c];
+        }
+        return (prefix == true || current->isWord);
+    }
+
+    bool startsWith(string prefix) {
+        return search(prefix, true);
+    }
+};
 ```
 
 ## Problems
