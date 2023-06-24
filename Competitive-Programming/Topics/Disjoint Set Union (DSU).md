@@ -43,12 +43,6 @@ struct DSU{
 } dsu;
 ```
 
+# Tutorials
 
-# DSU on Tree (Sack):
-It optimises for calculation of some property for a subtree by maintaining the answer for it’s heaviest child’s subtree (child with the largest subtree size) and iterating on rest of the subtree nodes to complete the calculation for the current node.
-https://codeforces.com/blog/entry/44351
-
-DSU on Tree (Small to Large)
-https://codeforces.com/blog/entry/67696
-
-https://codeforces.com/contest/600/problem/E
+[Disjoint Set Union (CP-Algorithms)](https://cp-algorithms.com/data_structures/disjoint_set_union.html)
